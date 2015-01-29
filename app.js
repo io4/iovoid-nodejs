@@ -4,9 +4,6 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var https = require('https');
-var http = require('http');
-var fs = require('fs');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -68,12 +65,5 @@ var server = app.listen(3000, function () {
   console.log('App listening at http://%s:%s', host, port)
 
 })
-
-var options = {
-  key: fs.readFileSync('keys/key.key'),
-  cert: fs.readFileSync('keys/cert.crt')
-};
-
-https.createServer(options, app).listen(443);
 
 module.exports = app;
