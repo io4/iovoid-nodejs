@@ -12,7 +12,6 @@
     "express": "~4.11.1",
     "hjs": "~0.0.6",
     "morgan": "~1.5.1",
-    "node-php": "0.0.1",
     "serve-favicon": "~2.2.0",
     "stylus": "0.42.3"
   }
