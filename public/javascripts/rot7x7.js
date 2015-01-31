@@ -16,8 +16,3 @@ function rot7( s ) {
 function rot7x7(s) {
  return rot7(rot7(rot7(rot7(rot7(rot7(rot7(s)))))));
 }
-//Note:
-// string to decode: Jf0nENanBNakiJIkiNakDfknBN1aDfbnENanBNChEdbniBMlBNekhNamBNClBAmGFKdmhcedEMAhG30=
-//To decode it you will need the script here
-//Steeps to decode:
-//Decode this to know: Náßrá^ä“.±Ák¢ﬁÒÓÿ^ù∂¨{Æ-ÖÈÎ¢ﬁÒ
