@@ -14,7 +14,7 @@
     "hjs": "~0.0.6",
     "morgan": "~1.5.1",
     "passwordless": "^1.0.8",
-    "passwordless-mongostore": "^0.1.1",
+    "passwordless-mongostore": "*",
     "serve-favicon": "~2.2.0",
     "stylus": "0.42.3"
   }
