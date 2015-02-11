@@ -4,7 +4,10 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 7d4767f... Add beta auth sys
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
