@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var passwordless = require('passwordless');
-var MongoStore = require('passwordless-mongostore-bcrypt-node');
+var MongoStore = require('passwordless-mongostore');
 var email = require('nodejs');
 
 //begin of paswordless setup
