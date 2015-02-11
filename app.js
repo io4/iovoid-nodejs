@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+<<<<<<< HEAD
 var passwordless = require('passwordless');
 var MongoStore = require('passwordless-mongostore');
 var email = require('nodejs');
@@ -40,6 +41,8 @@ passwordless.addDelivery(
 });
 
 //end of passwordless setup
+=======
+>>>>>>> parent of 7d4767f... Add beta auth sys
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -58,36 +61,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
-
-
-app.use('/auth', passwordless.sessionSupport());
-app.use('/auth', passwordless.acceptToken({ successRedirect: '/'}));
-
-/* GET login screen. */
-router.get('/login', function(req, res) {
-   res.render('login');
-});
-
-/* POST login details. */
-router.post('/sendtoken', 
-    passwordless.requestToken(
-        // Turn the email address into an user ID
-        function(user, delivery, callback) {
-            // usually you would want something like:
-            User.find({email: user}, callback(ret) {
-               if(ret)
-                  callback(null, ret.id)
-               else
-                  callback(null, null)
-          })
-          // but you could also do the following 
-          // if you want to allow anyone:
-          // callback(null, user);
-        }),
-    function(req, res) {
-       // success!
-          res.render('sent');
-});
 
 app.use('/', routes);
 app.use('/users', users);
