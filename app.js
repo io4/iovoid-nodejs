@@ -33,12 +33,17 @@ app.use(function(req, res, next) {
 app.use('/', routes);
 app.use('/users', users);
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
-});
+//Handle 418
+app.use('/418', function(req, res) {
+      res.status(418);
+     res.render('418.jade', {title: '418: I am a teapot.'});
+  });
+
+  // Handle 404
+  app.use(function(req, res) {
+      res.status(400);
+     res.render('404.jade', {title: '404: File Not Found'});
+  });
 
 // error handlers
 
@@ -56,13 +61,11 @@ if (app.get('env') === 'development') {
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-        message: err.message,
-        error: {}
-    });
-});
+  // Handle 500
+  app.use(function(error, req, res, next) {
+      res.status(500);
+     res.render('500.jade', {title:'500: Internal Server Error', error: error});
+  });
 
 var server = app.listen(process.env.PORT || 3000, function () {
 
