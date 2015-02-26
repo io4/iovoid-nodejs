@@ -6,6 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
 var app = express();
 
@@ -29,6 +31,23 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.header("Access-Control-Allow-Methods", "PUT, DELETE");
   next();
+});
+
+io.on('connection', function(socket){
+  console.log('A user connected');
+});
+
+io.on('connection', function(socket){
+  console.log('a user connected');
+  socket.on('disconnect', function(){
+    console.log('User disconnected');
+  });
+});
+
+io.on('connection', function(socket){
+  socket.on('chat message', function(msg){
+    io.emit('chat message', msg);
+  });
 });
 
 app.use('/', routes);
@@ -68,13 +87,7 @@ if (app.get('env') === 'development') {
      res.render('500.jade', {title:'500: Internal Server Error', error: error});
   });
 
-var server = app.listen(process.env.PORT || 3000, function () {
-
-  var host = server.address().address
-  var port = server.address().port
-
-  console.log('App listening at http://%s:%s', host, port)
-
-})
+http.listen(process.env.PORT || 3000, function(){
+});
 
 module.exports = app;
