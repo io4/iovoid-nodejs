@@ -1,0 +1,30 @@
+function rot( t, u, v ) {
+ return String.fromCharCode( ( ( t - u + v ) % ( v * 2 ) ) + u );
+}
+function rot7( s ) {
+ var b = [], c, i = s.length,
+  a = 'a'.charCodeAt(), z = a + 26,
+  A = 'A'.charCodeAt(), Z = A + 26;
+ while(i--) {
+  c = s.charCodeAt( i );
+  if( c>=a && c<z ) { b[i] = rot( c, a, 7 ); }
+  else if( c>=A && c<Z ) { b[i] = rot( c, A, 7 ); }
+  else { b[i] = s.charAt( i ); }
+ }
+ return b.join( '' );
+}
+function rot7x7(s) {
+ return rot7(rot7(rot7(rot7(rot7(rot7(rot7(s)))))));
+}
+function utf8_to_b64( str ) {
+  return window.btoa(unescape(encodeURIComponent( str )));
+}
+
+function b64_to_utf8( str ) {
+  return decodeURIComponent(escape(window.atob( str )));
+}
+//Note:
+//String to decode : QkI5MUJBa2FpYkkwaE5ObmpBQ2FpMkRuaENGbmwxTmJFSjA0aWNMbUxDSUZFTWplSEMwPQ==
+//To decode it you will need the script here
+//Steeps to decode:
+//Decode this to know: VG8gZW5jb2RlIEkgZGlkIHV0ZjhfdG9fYjY0KHJvdDd4Nyh1dGY4X3RvX2I2NCgiVEVYVCBIRVJFIikpKTsgICAgICAgDQpSZW1lbWJlciByb3Q3eDcoKSBpcyBhIHRyYXBkb29y
