@@ -40,9 +40,6 @@ if(indexOf(req.path)!=-1)){
 app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-//Enable cors
-app.use(cors());
-
 // Chatroom
 
 // usernames which are currently connected to the chat
