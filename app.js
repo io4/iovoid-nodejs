@@ -31,7 +31,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(function(req, res, next) {
 var cors="/cors";
-if(indexOf(req.path)!=-1)){
+if(indexOf(req.path)!=-1){
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 }
