@@ -30,11 +30,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(function(req, res, next) {
-var cors="/cors";
-if(cors.indexOf(req.path)!=-1){
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-}
   next();
 });
 app.use(require('stylus').middleware(path.join(__dirname, 'public')));
