@@ -1,3 +1,10 @@
+var loggly = require('loggly');
+ var client = loggly.createClient({
+    token: "cdec0dae-cd63-4360-a0e3-2ae6e04912eb",
+    subdomain: "iovoid",
+    tags: ["NodeJS"],
+    json:true
+});
 require('nodetime').profile({
     accountKey: '5109b67ff5ca18b7b0c144faf7afd6a852a59c2b', 
     appName: 'Node.js Application'
@@ -37,6 +44,9 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
+});
+app.use(function(req, res, next) {
+client.log("Visit from:"+req.ip);
 });
 app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
