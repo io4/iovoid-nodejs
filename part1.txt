@@ -1,0 +1,17 @@
+      <script src='//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
+      <script>
+        $(document).ready(function(){
+        var source;
+        $("#submit").click(function(){
+        user=$("#source").val();
+        $.post("/edit",{source: source}, function(data){
+        if(data==='done')
+        {
+        alert("Done.");
+        }
+        });
+        });
+        });
+</script>
+      <h3>Source code:</h3>
+      <input id="source" type='text' name='code' value="

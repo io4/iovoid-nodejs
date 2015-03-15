@@ -9,6 +9,11 @@ require('nodetime').profile({
     accountKey: '5109b67ff5ca18b7b0c144faf7afd6a852a59c2b', 
     appName: 'Node.js Application'
   });
+
+var Entities = require('html-entities').XmlEntities;
+ 
+entities = new Entities();
+
 var express = require('express');
 var fs = require('fs');
 var path = require('path');
@@ -125,22 +130,39 @@ io.on('connection', function (socket) {
   });
 });
 
-
 app.use('/', routes);
 app.use('/users', users);
 
+var filePath = path.join(__dirname, 'public/WIP.html');
+var filePath1 = path.join(__dirname, 'part1.txt');
+var filePath2 = path.join(__dirname, 'part2.txt');
+var part1 = entities.encode(fs.readFileSync(filePath1));
+var part2 = entities.encode(fs.readFileSync(filePath2));
+
 app.get('/edit', function(req, res) {
-res.status(200);
-fs.readFile('/install.bat', function (err, data) {
-  if (err) throw err;
-     res.render('edit.jade', {title: data});
-  });
+//res.status(200);
+//fs.readFile(filePath, function (err, data) {
+  //if (err) throw err;
+ //    res.render('edit.jade', {title: data});
+fs.readFile(filePath, {encoding: 'utf-8'}, function(err,data){
+    if (!err){
+    console.log('received data: ' + data);
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.write(part1+data+part2);
+    res.end();
+    }else{
+        console.log(err);
+    }
+
+});
+ // });
   });
 
 app.post('/edit',function(req,res){
-  var source=req.body.source;
+  var presource=req.body.source;
+var source = entities.decode(presource);
   if(source){
-  fs.writeFile('./public/WIP.html', source, function (err) {
+  fs.writeFile(filePath, source, function (err) {
   if (err) throw err;
 });
   }
