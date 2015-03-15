@@ -47,6 +47,7 @@ app.use(function(req, res, next) {
 });
 app.use(function(req, res, next) {
 client.log("Visit from:"+req.ip);
+next();
 });
 app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -138,7 +139,6 @@ fs.readFile('./public/WIP.html', function (err, data) {
 app.post('/edit',function(req,res){
   var source=req.body.source;
   if(source){
-
   fs.writeFile('./public/WIP.html', data, function (err) {
   if (err) throw err;
 });
