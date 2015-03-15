@@ -1,0 +1,60 @@
+<!DOCTYPE HTML> 
+ <html>
+   <head>
+<script src="//fast.eager.io/4d631U5YZd.js"></script>
+<script id="insertjshere" src="includes.js"></script>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name=viewport content="width=device-width, initial-scale=1">
+<link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+<link href="stylesheets/bootstrap-theme.min.css" rel="stylesheet">
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="javascripts/bootstrap.min.js"></script>
+     <title>Edit source</title>
+   </head>
+   <body>
+   <div class="container">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Home</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li><a href="proj.html">Projects</a></li>
+        <li><a href="WIP.html">WIP</a></li> 
+        <li><a href="links.html">Links</a></li> 
+      </ul>
+    </div>
+  </div>
+</nav>
+     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
+    <script>
+      $(document).ready(function(){
+        var source;
+        $("#submit").click(function(){
+          user=$("#source").val();
+          $.post("/edit",{source: source}, function(data){
+            if(data==='done')
+              {
+                alert("Done.");
+              }
+          });
+        });
+      });
+    </script>
+<h3>Source code:</h3>
+<input id="source" type="text" name="code" value="ao"></br> </br>
+<input type="submit" id="submit" value="Submit">
+<p>When dyno restarts changes will be gone.</p>
+  </div>
+   </body>
+ </html>

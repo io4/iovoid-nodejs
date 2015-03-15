@@ -127,6 +127,19 @@ io.on('connection', function (socket) {
 app.use('/', routes);
 app.use('/users', users);
 
+app.post('/edit',function(req,res){
+  var source=req.body.source;
+  if(source){
+fs.readFile('./public/WIP.html', function (err, data) {
+  if (err) throw err;
+  fs.writeFile('./public/WIP.html', data, function (err) {
+  if (err) throw err;
+});
+});
+  }
+  res.send(source);
+});
+
 //Handle 418
 app.use('/418', function(req, res) {
       res.status(418);
