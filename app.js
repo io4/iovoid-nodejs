@@ -133,11 +133,11 @@ io.on('connection', function (socket) {
 app.use('/', routes);
 app.use('/users', users);
 
-var filePath = path.join(__dirname, 'public/WIP.html');
-var filePath1 = path.join(__dirname, 'part1.txt');
-var filePath2 = path.join(__dirname, 'part2.txt');
-var part1 = entities.encode(fs.readFileSync(filePath1));
-var part2 = entities.encode(fs.readFileSync(filePath2));
+//var filePath = path.join(__dirname, 'public/WIP.html');
+//var filePath1 = path.join(__dirname, 'part1.txt');
+//var filePath2 = path.join(__dirname, 'part2.txt');
+//var part1 = entities.encode(fs.readFileSync(filePath1));
+//var part2 = entities.encode(fs.readFileSync(filePath2));
 
 app.get('/edit', function(req, res) {
 //res.status(200);
