@@ -25,6 +25,15 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var app = express();
 
+// Authentication module.
+var auth = require('http-auth');
+var basic = auth.basic({
+        realm: "Simon Area."
+    }, function (username, password, callback) { // Custom authentication method.
+        callback(username === "user" && password === "pass");
+    }
+);
+
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 var port = process.env.PORT || 3000;
@@ -132,6 +141,9 @@ io.on('connection', function (socket) {
 
 app.use('/', routes);
 app.use('/users', users);
+
+app.use('/admin', auth.connect(basic));
+app.use('/admin', express.static(__dirname + '/admin'));
 
 //var filePath = path.join(__dirname, 'public/WIP.html');
 //var filePath1 = path.join(__dirname, 'part1.txt');
