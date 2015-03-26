@@ -19,24 +19,16 @@ var fs = require('fs');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
+var session = require('express-session');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var app = express();
 
-// Authentication module.
-var auth = require('http-auth');
-var basic = auth.basic({
-        realm: "Simon Area."
-    }, function (username, password, callback) { // Custom authentication method.
-        callback(username === "user" && password === "pass");
-    }
-);
-
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3001;
 
 server.listen(port, function () {
   console.log('Server listening at port %d', port);
@@ -48,9 +40,9 @@ server.listen(port, function () {
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-
+app.use(session({secret: 'iomeansio'}));
 // uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -66,6 +58,62 @@ next();
 });
 app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/login',function(req,res){
+sess=req.session;
+//Session set when user Request our app via URL
+if(sess.user)
+{
+/*
+* This line check Session existence.
+* If it existed will do some action.
+*/
+res.redirect('/admin');
+} else {
+res.redirect('login.html');
+}
+});
+
+app.post('/login',function(req,res){
+sess=req.session;
+//In this we are assigning user to sess.user variable.
+//user comes from HTML page.
+if(req.body.user=="io" && req.body.pass=="pass"){
+sess.user=req.body.user;
+res.end('done');
+} else {
+res.end('ERR_USER_OR_PASS_WRONG');
+}
+});
+
+app.get('/admin',function(req,res){
+sess=req.session;
+if(sess.user=="io")
+{
+res.write('<h1>Hello '+sess.user+'</h1>');
+res.end('<a href="/logout">Logout</a>');
+}
+else
+{
+res.redirect('/admin_nopass.html');
+//res.write('<h1>Please login first.</h1>');
+//res.end('<a href="/login">Login</a>');
+}
+
+});
+
+app.get('/logout',function(req,res){
+
+req.session.destroy(function(err){
+if(err){
+console.log(err);
+}
+else
+{
+res.redirect('/');
+}
+});
+});
 
 // Chatroom
 
@@ -141,9 +189,6 @@ io.on('connection', function (socket) {
 
 app.use('/', routes);
 app.use('/users', users);
-
-app.use('/admin', auth.connect(basic));
-app.use('/admin', express.static(__dirname + '/admin'));
 
 //var filePath = path.join(__dirname, 'public/WIP.html');
 //var filePath1 = path.join(__dirname, 'part1.txt');

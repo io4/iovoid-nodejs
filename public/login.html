@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Log in</title>
+
+  <link rel='stylesheet' href='http://codepen.io/assets/libs/fullpage/jquery-ui.css'>
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+  <div class="login-card">
+    <h1>Log-in</h1><br>
+    <input type="text" id="user" name="user" placeholder="Username">
+    <input type="password" id="pass" name="pass" placeholder="Password">
+    <input type="button" id="submit" name="login" class="login login-submit" value="Login">
+<script>
+$(document).ready(function(){
+    var user,pass;
+    $("#submit").click(function(){
+        user=$("#user").val();
+        pass=$("#pass").val();
+        /*
+        * Perform some validation here.
+        */
+        $.post("/login",{user:user,pass:pass},function(data){        
+            if(data==='done')           
+            {
+                window.location.href="/admin";
+            } else {
+                alert("Username or password invalid!");
+            }
+        });
+    });
+});
+</script>
+<!-- <div id="error"><img src="https://dl.dropboxusercontent.com/u/23299152/Delete-icon.png" /> Your caps-lock is on.</div> -->
+
+  <script src='http://codepen.io/assets/libs/fullpage/jquery_and_jqueryui.js'></script>
+
+</body>
+
+</html>
