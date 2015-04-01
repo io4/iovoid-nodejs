@@ -1,17 +1,19 @@
 {
-  "clan":[["name", "BMN Clash"],
-  ["level", 1],
-  ["type", "private"],
-  ["trophies", 800],
-  ["war", "Twice a week."],
-  ["location", "International"],
-  ["tag", "#2PLCQJ8P"],
-  [["Frankie", "Leader"],
-  ["Bowserinator", "Co-Leader"],
-  ["Io", "Co-Leader"],
-  ["Mrprocom", "Co-Leader"],
-  ["Nick", "Co-Leader"],
-  ["wolfy1339", "Co-Leader"],
-  ["Shrek", "Co-Leader"],
-  ["MilksterHDGamin", "Co-Leader"]]]
+  "clan": {
+    "name": "BMN Clash",
+    "level": 1,
+    "type": "private",
+    "trophies": 800,
+    "war": "Twice a week.",
+    "location": "International",
+    "tag": "#2PLCQJ8P",
+    "leaders": [["Frankie", "Leader"],
+      ["Bowserinator", "Co-Leader"],
+      ["Io", "Co-Leader"],
+      ["Mrprocom", "Co-Leader"],
+      ["Nick", "Co-Leader"],
+      ["wolfy1339", "Co-Leader"],
+      ["Shrek", "Co-Leader"],
+      ["MilksterHDGamin", "Co-Leader"]]
+  }
 }
