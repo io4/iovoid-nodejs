@@ -1,0 +1,67 @@
+==================================================================
+https://keybase.io/io4
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://iovoid.tk
+  * I am io4 (https://keybase.io/io4) on keybase.
+  * I have a public key with fingerprint B61C F4AD F3FE FDB5 F721  6A8A DC12 6D4F CE47 32F2
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "b61cf4adf3fefdb5f7216a8adc126d4fce4732f2",
+            "host": "keybase.io",
+            "key_id": "dc126d4fce4732f2",
+            "kid": "010185a9236965ec8486f26b546ec44d7b87eff6183539723bdf5279b849c25c2b2f0a",
+            "uid": "92639d3aed7813de02e87f13cd0e0e19",
+            "username": "io4"
+        },
+        "service": {
+            "hostname": "iovoid.tk",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1436322387,
+    "expire_in": 157680000,
+    "prev": "a5e2969a4f324bd5de72bf3ddb60a14a5098c445f81cbe40a2f4105ca1a65b6d",
+    "seqno": 4,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.20
+Comment: https://keybase.io/crypto
+
+yMIVAnicbZJvSBRBGMbvsos6tKwPKYmZW367ut3Z3dndKwKpzDJQKAlCOmd2Zs7F
+3D33zjsPyVD7Q4WUUFIRaCRFBlERJJVUUoQEXhCBZASVQfShqCiMVJqV6lPzZZjn
+fZ7fzPsyj/JyfEF/dE9ux7sLX9r8Tx8aLb7a88d2tgnYIRkh0iY00rmNWXaMunHX
+spNCRMBQMpmCCJMZZQSrTAMSRDoipgQgUZhJFU0GDAghocFJeAmOwShB11kO1/gh
+ahGu/sffOFcQJVHSVWQAGRpQpaau6JABiFUFUlNRiIZ1jTIGJV1WZUMDMiZMBZqB
+dcUwgWoCDJiIOK5lDmcAKBtERpRouiQTKgKqa0ySTSJSkUqGZ0xQ10ZNlLstRxH2
+hwQupCyTet17TfwrphyLrEs28kzcdZKO6ezjckMyGU9EvFgyE/d8aYqjfwhRbNmE
+z48nUtRNWI4tRCTuNJOWh5QUGcoAyLoWEmhr3HJp1PIcqgZ1kS/vHpriSKRSYEAD
+KUwGCiYqoRrATCYEQxFJClJFQ+fDUZkumZgqIgJMkUTVRBKCKoZE8Hpqth0hovBn
+ohhHJqyYjZItLhX2jzyom+/zB30LAvO8H+ALLsr/+y8qry30Xd9ZXrPrgKa11gyP
+Jdp/DPW+rbhcHhoqnHgcCupi4CM5c/ZHz8iEb1vg0enIzKvjJWtzbzdcG2zdFM7m
+BM4UbF1+rCnQeaR/urOnr2JZB1yzwLly8YVbf0lLjPX17n53817pk7LXzvOLRZ9G
+MxNVRTPpz0Jd3aGjXSvLwwNbwnnpjlMD2dCldPHi9kL/cOeJ7/HJUHXf6EY6u/nG
+eOXY1fEuFy2Jb1j6eKQWz77KnJxKfTubPTi4vrL7cHNJ1DgSq3rjK8h7Nvmra1qY
+2mtnv1K0qr/gzt2y7e1Djt0U3lFNV2s0fb+nvvT95K3uivVIXnHuQ7GUfTlqZaqK
+83/+BtTtIgg=
+=vJeF
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/io4
+
+==================================================================
