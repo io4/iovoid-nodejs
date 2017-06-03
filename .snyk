@@ -6,3 +6,12 @@ patch:
   'npm:uglify-js:20151024':
     - jade > transformers > uglify-js:
         patched: '2017-03-06T02:18:40.879Z'
+  'npm:ms:20170412':
+    - morgan > debug > ms:
+        patched: '2017-05-22T07:36:09.673Z'
+    - socket.io > socket.io-adapter > socket.io-parser > debug > ms:
+        patched: '2017-05-22T07:36:09.673Z'
+    - socket.io > socket.io-adapter > debug > ms:
+        patched: '2017-05-22T07:36:09.673Z'
+    - socket.io > socket.io-client > debug > ms:
+        patched: '2017-05-22T07:36:09.673Z'
