@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.7.1
+version: v1.12.0
 ignore: {}
 # patches apply the minimum changes required to fix a vulnerability
 patch:
@@ -9,3 +9,6 @@ patch:
   'npm:debug:20170905':
     - socket.io > socket.io-adapter > socket.io-parser > debug:
         patched: '2017-10-02T07:36:05.587Z'
+  'npm:tunnel-agent:20170305':
+    - loggly > request > tunnel-agent:
+        patched: '2018-07-02T05:38:27.160Z'
